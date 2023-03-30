@@ -29,7 +29,7 @@
         100% {transform: translateY(100px) scale(1);}
     }
     @keyframes burger2 {
-        0% {transform: translateX(0) translateY(100px);}
+        0% {transform: translateX(0) translateY(100px);} /* 리버스는 0~100의 양수끼리, -100~0의 음수끼리 숫자를 반전할 때에만 사용가능 */
         50% {transform:translateX(1000px) translateY(100px);}
         100% {transform:translateX(0) translateY(100px);}
     }
