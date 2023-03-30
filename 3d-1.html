@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d-1</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        /* 애니메이션, 키프레임, 호버 할 때만 쓰기 때문에 사용 빈도는 많지 않음 */
+        body {text-align: center; overflow: hidden;}
+        #go {
+            position:fixed; left:25px; top:25px; border-radius: 10px;
+            padding:20px; background:#222; color:#fff;
+        }
+        #perspective {
+            /* background:#eee;  */display:inline-flex; /* 배경 버그 있음, 3D 할때 부모 배경 넣어두면 버그 걸림 */
+            padding:30px; margin-top:200px;
+            transform-style: preserve-3d; /* 부모 내의 자식을 3차원 대상 인식 */
+            perspective: 100px;/* 부모와 똑같은 이름, 사람과 화면 상의 거리, 하나의 원근감을 기준점으로 움직이려면 부모에 걸어라. */
+        }
+        #perspective .box {
+            background:hotpink; width:200px; height:200px;
+            transition: all 0.5s; margin: 100px;
+            animation: ts3d 3s linear alternate infinite;
+        }
+        #go:hover ~ #perspective .box {
+            transform:/* perspective(200px) */ rotateX(90deg) skew(10deg);
+            
+        } /* 회전과 기울이기 용으로 사용함. */ /* 부모한테 perspective 안 주고 자식한테 줄 수도 있지만 개별로 3D 입힐 때마다 perspective 입력해줘야함. 부모에 쓸 때에는 :; 구조, 자식에게 쓸 때는 () 구조인 거 많이 헷갈림 주의 */
+        
+        @keyframes ts3d {
+            0% {transform: rotateX(0) skew(0) scale(1) ;}
+            50% {transform: rotateX(45deg) skew(15deg) scale(1);}
+            100% {transform: rotateX(-45deg) skew(0) scale(1);}
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="go">GO</button>
+    <div id="perspective">
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

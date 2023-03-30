@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d-1</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        /* 애니메이션, 키프레임, 호버 할 때만 쓰기 때문에 사용 빈도는 많지 않음 */
+        .perspective {
+            width:600px;
+        }
+        .perspective .box {
+            width:600px;
+            animation: by 6s linear alternate infinite;
+            perspective: 500px; /* 부모든 자식이든 퍼스팩티브 안 먹이면 로테이트 X나 Y 안 먹힘 */
+            
+        }
+        .perspective .box img { width: 100%;
+        }
+        @keyframes by {
+            0% {transform: perspective(500px) rotateY(0) ;}
+            25% {transform: perspective(300px) rotateY(5deg) ;}
+            75% {transform: perspective(200px) rotateY(-5deg) ;}
+            100% {transform: perspective(100px) rotateY(0) ;}
+        }
+    </style>
+</head>
+<body>
+    <div class="perspective">
+        <div class="box">
+            <img src="./images/bicycle.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

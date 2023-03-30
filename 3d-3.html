@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d-1</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        /* 애니메이션, 키프레임, 호버 할 때만 쓰기 때문에 사용 빈도는 많지 않음 */
+        body, html {
+            background: #eee; text-align: center;
+        }
+        .perspective {
+            perspective: 700px; display: inline-flex;
+            transform-style:preserve-3d; margin-top: 200px;
+        }
+        .perspective .box {
+            background: hotpink;
+            width: 200px; height: 200px;  margin: 50px;
+            margin-left: 50px;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            transform: rotateX(40deg) rotateZ(45deg);
+        }
+        .perspective .box:nth-child(1) {animation: box 0.5s 0.5s ease forwards,
+                                        box 0.5s alternate-reverse ease 2s forwards;} /* 애니메이션을 두 번 이상 호출할 때에는 both가 아니라 forwards라고 작성해야 함. 하나일 때에만 both */
+        .perspective .box:nth-child(2) {animation: box 0.5s ease forwards 1s,
+            box 0.5s alternate-reverse ease 2.5s forwards;}
+/*         .perspective .box:hover {
+            animation: box 0.3s ease both;
+        } */
+        .perspective .box:first-child {}
+        @keyframes box {
+            0% {
+                transform: rotateX(40deg) rotateZ(45deg) scale(1);
+                border-radius: 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            }
+            100% {
+                transform: rotateX(0deg) rotateZ(0deg) scale(1.2);
+                border-radius: 20px;
+                box-shadow: 0 100px 30px -30px rgba(0, 0, 0, 0.2);
+            }
+        }
+        /* 0% {
+            transform: rotateX(40deg) rotateZ(45deg) scale(1);
+            border-radius: 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+        100% {
+            transform: rotateX(0deg) rotateZ(0deg) scale(1.2);
+            border-radius: 20px;
+            box-shadow: 0 100px 30px -30px rgba(0, 0, 0, 0.2);
+        } */
+    </style>
+</head>
+<body>
+    <div class="perspective">
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

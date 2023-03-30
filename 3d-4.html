@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d-4</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        /* 애니메이션, 키프레임, 호버 할 때만 쓰기 때문에 사용 빈도는 많지 않음 */
+        body {text-align: center; overflow: hidden; background: #f68a16;}
+        .perspective {
+            display: inline-flex;
+            perspective: 300px;
+            transform-style: preserve-3d;
+        }
+        .perspective .box {background: url(./images/burger1.jpg) no-repeat; width: 150px; height:150px;
+            background-position: 0 -30px;
+            background-size: cover;
+            margin: 10px; border: #fff solid 3px;
+            perspective: 500px;
+        }
+        .perspective .box:nth-child(1) {animation: burger 1s ease forwards, burger3 3s 1s ease forwards;}
+        .perspective .box:nth-child(2) {animation: burger 1s ease forwards, burger2 3s 1s ease forwards;}
+    @keyframes burger {
+        0% {transform: translateY(-100px) scale(0.7); }
+        100% {transform: translateY(100px) scale(1);}
+    }
+    @keyframes burger2 {
+        0% {transform: translateX(0) translateY(100px);}
+        50% {transform:translateX(1000px) translateY(100px);}
+        100% {transform:translateX(0) translateY(100px);}
+    }
+    @keyframes burger3 {
+        0% {transform: translateX(0) translateY(100px);}
+        50% {transform:translateX(-1000px) translateY(100px);}
+        100% {transform:translateX(0) translateY(100px);}
+    }
+    </style>
+</head>
+<body>
+    <div class="perspective">
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>
