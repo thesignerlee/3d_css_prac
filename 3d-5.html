@@ -10,29 +10,33 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <style>
         /* 애니메이션, 키프레임, 호버 할 때만 쓰기 때문에 사용 빈도는 많지 않음 */
-        body,html {text-align: center; background: #eee;}
-        .wrap {
+        body,html {background: #eee;}
+        #wrap {width:500px;}
+        #wrap .card_wrap {
+            width:500px; height:290px; background: pink;
+            position:relative;
             transform-style: preserve-3d;
-            position: relative;
-            display: flex;
-            width:500px;
-            transition: 0.5s;
+            transition: all 0.5s;}
+        #wrap .card_wrap .card {
+            /* block width = 100% */
+            position:absolute; left: 0; top:0; /* absolute를 주면 인라인처럼 됨, width를 줘서 인식 시켜야 됨 */
+            width: 100%; backface-visibility:hidden; /* 뒷면 숨기기 */
         }
-        .wrap .card {transition: all 1s; width: 100%; position: absolute; left: 0; top:0;  backface-visibility:hidden; display: block;}
-        .wrap .card img {width:100%; overflow: clip; overflow-clip-margin: content-box;}
-        .wrap .front {backface-visibility:hidden;}
-        .wrap .back {backface-visibility:visible; transform: rotate(180deg);}
-        .wrap .card:hover {transform:rotateY(0deg);}
-        .wrap .back:hover {transform:rotateY(180deg);}
+        #wrap .card_wrap .card img {width:100%;}
+        #wrap .card_wrap .front { transform: rotateY(0deg);}
+        #wrap .card_wrap .back {transform: rotateY(180deg);} /* 백페이스 비지블을 넣으면 뒷장이 앞으로 올라옴 */
+        #wrap:hover .card_wrap {transform:rotateY(180deg);}
     </style>
 </head>
 <body>
-<div class="wrap">
-    <div class="card front">
-        <img src="./images/front.png" alt="">
-    </div>
-    <div class="card back">
-        <img src="./images/back.png" alt="">
+<div id="wrap">
+    <div class="card_wrap">
+        <div class="card front">
+            <img src="./images/front.png" alt="">
+        </div>
+        <div class="card back">
+            <img src="./images/back.png" alt="">
+        </div>
     </div>
 </div>
 </body>

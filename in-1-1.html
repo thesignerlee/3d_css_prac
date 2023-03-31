@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>in-1</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        #frm {background: #eee; padding: 20px;}
+        #frm #chk {appearance:none;}
+        #frm label {}
+        #frm label::before {
+            content: ''; display: inline-block; width: 12px; height: 12px; background: #fff; border-radius: 3px; border: 1px solid #666;
+            box-shadow: 0 0 5px; background-size: 100%; margin-right: 5px;
+        }
+        #frm #chk:checked /* 인풋 체크박스 이 대상이 체크되었을 때, */ + label::before {
+            background: url(./images/easy-to-install.png) no-repeat;
+            background-size: 100%;
+        }
+        #frm #chk:checked /* 인풋 체크박스 이 대상이 체크되었을 때, */ + label{color:#fff;}
+    </style>
+</head>
+<body>
+    <form action="#" method="posd" id="frm">
+        <input type="checkbox" name="chk" id="chk">
+        <label for="chk">install</label>
+    </form>
+</body>
+</html>

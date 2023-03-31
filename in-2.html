@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d-1</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <style>
+        #frm {background: #eee; padding:20px;}
+        #frm #switch {
+            appearance: none;
+            background: #aaa; border-radius: 20px;
+            width:30px; height:20px; position: relative;
+            transition: all 0.3s ease;
+        }
+        #frm #switch::after {
+            content: ''; display: block;
+            background: #fff; border-radius: 50%;
+            width:15px; height:15px; position:absolute; top:2px; left:2px; 
+        }
+        #frm #switch:checked {background: #2161f6;}
+        #frm #switch:checked::after {left:13px;}
+        #frm #switch, #frm #switch::after {transition: all 0.3s ease;}
+    </style>
+</head>
+<body>
+    <form action="#" method="post" id="frm">
+        <input type="checkbox" name="switch" id="switch">
+    </form>
+</body>
+</html>
